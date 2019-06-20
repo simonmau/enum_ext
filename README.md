@@ -34,3 +34,34 @@ public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
     }
 }
 ```
+
+#### A fixed price that is valid for a certain time period
+```C#
+public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
+{
+    public decimal Price { get; }
+
+    public DateTime ValidFrom { get; }
+
+    public DateTime ValidTo { get; }
+
+    public static readonly YearlyPrice Price_2018 = 
+        new DatedPrice(1, 15.99m, new DateTime(2018, 1, 1), new DateTime(31, 12, 2018));
+
+    public static readonly YearlyPrice Price_2019 =
+        new DatedPrice(1, 16.99m, new DateTime(2019, 1, 1), new DateTime(31, 12, 2019));
+
+    public YearlyPrice(int id, decimal price, DateTime validFrom, DateTime validTo) : base(id)
+    {
+        ValidFrom = validFrom;
+        ValidTo = validTo;
+        Price = price;
+    }
+
+    public YearlyPrice GetPriceByDate(DateTime date)
+    {
+        return List.FirstOrDefault(x => x.ValidFrom <= date && date <= ValidTo);
+    }
+}
+```
+
