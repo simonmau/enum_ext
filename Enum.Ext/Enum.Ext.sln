@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext", "Enum.Ext\Enum.Ext.csproj", "{14D333D9-B435-4977-89C0-3F9CE70EC724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext", "Enum.Ext\Enum.Ext.csproj", "{14D333D9-B435-4977-89C0-3F9CE70EC724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.Tests", "Enum.Ext.Tests\Enum.Ext.Tests.csproj", "{895F156E-3FB9-43E9-AD4B-A5E8A777DA7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.Tests", "Enum.Ext.Tests\Enum.Ext.Tests.csproj", "{895F156E-3FB9-43E9-AD4B-A5E8A777DA7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.EFCore", "Enum.Ext.EFCore\Enum.Ext.EFCore.csproj", "{895C21C1-AB7D-4284-B98F-331A9880E37F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.EFCore.Tests", "Enum.Ext.EFCore.Tests\Enum.Ext.EFCore.Tests.csproj", "{F4510B30-62E3-439C-A224-FEEC0D5D06E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{895F156E-3FB9-43E9-AD4B-A5E8A777DA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{895F156E-3FB9-43E9-AD4B-A5E8A777DA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{895F156E-3FB9-43E9-AD4B-A5E8A777DA7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{895C21C1-AB7D-4284-B98F-331A9880E37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895C21C1-AB7D-4284-B98F-331A9880E37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895C21C1-AB7D-4284-B98F-331A9880E37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895C21C1-AB7D-4284-B98F-331A9880E37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4510B30-62E3-439C-A224-FEEC0D5D06E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4510B30-62E3-439C-A224-FEEC0D5D06E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4510B30-62E3-439C-A224-FEEC0D5D06E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4510B30-62E3-439C-A224-FEEC0D5D06E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
