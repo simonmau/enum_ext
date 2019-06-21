@@ -48,9 +48,9 @@ namespace Enum.Ext.Tests
         [Test]
         public void Test_ThrowsWhenSameId()
         {
-            Action secondInitialize = () => Initialize.InitStaticFields<WrongEnum>();
+            Action initializeWithSameId = () => Initialize.InitStaticFields<WrongEnum>();
 
-            secondInitialize.Should().Throw<TypeInitializationException>();
+            initializeWithSameId.Should().Throw<TypeInitializationException>();
         }
     }
 }
