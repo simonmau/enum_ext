@@ -87,6 +87,7 @@ public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
 
     public static YearlyPrice GetPriceByDate(DateTime date)
     {
+        // The List property holds all elements declared above
         return List.FirstOrDefault(x => x.ValidFrom <= date && date <= x.ValidTo);
     }
 }
