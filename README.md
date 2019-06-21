@@ -60,17 +60,17 @@ Console.WriteLine(day.Name);
 ```C#
 public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
 {
-    public decimal Price { get; }
+    public decimal Price { get; private set; }
 
-    public DateTime ValidFrom { get; }
+    public DateTime ValidFrom { get; private set; }
 
-    public DateTime ValidTo { get; }
+    public DateTime ValidTo { get; private set; }
 
-    public static readonly YearlyPrice Price_2018 = 
-        new DatedPrice(1, 15.99m, new DateTime(2018, 1, 1), new DateTime(31, 12, 2018));
+    public static readonly YearlyPrice Price_2018 =
+        new YearlyPrice(1, 15.99m, new DateTime(2018, 1, 1), new DateTime(31, 12, 2018));
 
     public static readonly YearlyPrice Price_2019 =
-        new DatedPrice(1, 16.99m, new DateTime(2019, 1, 1), new DateTime(31, 12, 2019));
+        new YearlyPrice(1, 16.99m, new DateTime(2019, 1, 1), new DateTime(31, 12, 2019));
 
     public YearlyPrice(int id, decimal price, DateTime validFrom, DateTime validTo) : base(id)
     {
@@ -81,8 +81,7 @@ public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
 
     public static YearlyPrice GetPriceByDate(DateTime date)
     {
-        // The List property contains all elements declared above
-        return List.FirstOrDefault(x => x.ValidFrom <= date && date <= ValidTo);
+        return List.FirstOrDefault(x => x.ValidFrom <= date && date <= x.ValidTo);
     }
 }
 ```
