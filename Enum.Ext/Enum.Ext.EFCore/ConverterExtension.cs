@@ -15,15 +15,13 @@ namespace Enum.Ext.EFCore
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
-                var properties = entityType.ClrType.GetProperties()
-                    .Where(p => IsDerived(p.PropertyType));
+                var properties = entityType.ClrType.GetProperties().Where(p => IsDerived(p.PropertyType));
 
                 foreach (var property in properties)
                 {
-                    var genericArguments = GetKeyType(property.PropertyType).GetTypeInfo().GenericTypeArguments;
+                    var keyType = GetKeyType(property.PropertyType);
 
-                    var converterType = typeof(TypeSafeEnumConverter<,>)
-                       .MakeGenericType(genericArguments[0], genericArguments[1]);
+                    var converterType = typeof(TypeSafeEnumConverter<,>).MakeGenericType(property.PropertyType, keyType);
 
                     var converter = (ValueConverter)Activator.CreateInstance(converterType);
 

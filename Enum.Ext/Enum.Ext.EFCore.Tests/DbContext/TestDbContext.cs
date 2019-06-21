@@ -25,11 +25,7 @@ namespace Enum.Ext.EFCore.Tests.DbContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var converter = new TypeSafeEnumConverter<Weekday, int>();
-
-            modelBuilder.Entity<SomeEntity>()
-                .Property(e => e.Weekday)
-                .HasConversion(converter);
+            modelBuilder.ConfigureEnumExt();
         }
 
         public DbSet<SomeEntity> SomeEntities { get; set; }

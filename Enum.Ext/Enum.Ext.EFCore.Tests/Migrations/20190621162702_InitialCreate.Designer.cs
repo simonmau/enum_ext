@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Enum.Ext.EFCore.Tests.Migrations
 {
     [DbContext(typeof(TestDbContext))]
-    [Migration("20190621124633_InitialCreate")]
+    [Migration("20190621162702_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
