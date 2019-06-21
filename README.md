@@ -12,12 +12,12 @@ There is also a Json-Serializer implemented, so you dont have to cast from DTOs 
 ### Installation 
 https://www.nuget.org/packages/Enum.Ext/
 
-Enum.Ext can be installed using the following command via the NuGet package manager console:
+`Enum.Ext` can be installed using the following command via the NuGet package manager console:
 
     PM> Install-Package Enum.Ext
 
 
-If you are planning to use the enums with Entity Framework Core, you should also install `Enum.Ext.EFCore`
+If you are planning to use the `Enum.Ext` with Entity Framework Core, you should also install `Enum.Ext.EFCore`
 
 https://www.nuget.org/packages/Enum.Ext.EFCore/
 
