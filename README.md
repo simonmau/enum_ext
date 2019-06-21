@@ -23,7 +23,7 @@ Simply inherit your class from `TypeSafeEnum` or `TypeSafeNameEnum` and adjust e
 
 
 
-#### Want a weekday enum with an special string representation for each day?
+#### Want a weekday enum with a special string representation for each day?
 ```C#
 public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
 {
