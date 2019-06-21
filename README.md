@@ -17,7 +17,7 @@ https://www.nuget.org/packages/Enum.Ext/
     PM> Install-Package Enum.Ext
 
 
-If you are planning to use the `Enum.Ext` with Entity Framework Core, you should also install `Enum.Ext.EFCore`
+If you are planning to use `Enum.Ext` with Entity Framework Core, you should also install `Enum.Ext.EFCore`
 
 https://www.nuget.org/packages/Enum.Ext.EFCore/
 
