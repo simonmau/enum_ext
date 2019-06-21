@@ -3,7 +3,7 @@ using System;
 
 namespace Enum.Ext.Tests
 {
-    public class Test
+    public class BasicTests
     {
         [SetUp]
         public void InitWeekday()

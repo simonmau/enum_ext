@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System;
+using Newtonsoft.Json;
+using Enum.Ext.Converter;
 
 namespace Enum.Ext
 {
-    public abstract class TypeSafeEnum<TValue, TKey>
+    [JsonConverter(typeof(JsonTypeSafeEnumConverter))]
+    public abstract class TypeSafeEnum<TValue, TKey> where TKey : struct
     {
         protected static readonly Dictionary<TKey, TypeSafeEnum<TValue, TKey>> Dictionary = new Dictionary<TKey, TypeSafeEnum<TValue, TKey>>();
 

@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.1.0</Version>
     <Authors>Mauracher Simon, Juen Marcel</Authors>
     <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
     <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageIconUrl>https://github.com/simonmau/enum_ext/blob/master/Resources/Logo/EXT.png?raw=true</PackageIconUrl>
+    <PackageIconUrl>https://github.com/simonmau/enum_ext/blob/master/Resources/Logo/EXT_64.png?raw=true</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +16,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
 </Project>
