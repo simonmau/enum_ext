@@ -93,5 +93,5 @@ Get the according enum for a given date
 DateTime year_2018 = new DateTime(2018, 5, 3);
 
 // Returns YearlyPrice.Price_2018
-var priceEnum = YearlyPrice.GetPriceByDate(year_2018);
+var price = YearlyPrice.GetPriceByDate(year_2018);
 ```
