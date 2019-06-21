@@ -58,6 +58,10 @@ var day = Weekday.Monday;
 Console.WriteLine(day.Name);
 ```
 
+### Enum.Ext in action
+
+Here you find some examples how you could use the extension.
+
 #### A fixed price that is valid for a certain time period
 ```C#
 public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
