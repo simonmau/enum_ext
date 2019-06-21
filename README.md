@@ -17,6 +17,13 @@ Enum.Ext can be installed using the following command via the NuGet package mana
     PM> Install-Package Enum.Ext
 
 
+If you are planning to use the enums with Entity Framework Core, you should also install `Enum.Ext.EFCore`
+
+https://www.nuget.org/packages/Enum.Ext.EFCore/
+
+
+    PM> Install-Package Enum.Ext.EFCore
+
 ### How to use
 
 Simply inherit your class from `TypeSafeEnum` or `TypeSafeNameEnum` and adjust everything to your needs.
@@ -56,6 +63,17 @@ var day = Weekday.Monday;
 
 // Prints out '--Monday--'
 Console.WriteLine(day.Name);
+```
+
+#### EF Core configuration
+
+Just add one line to thein `OnModelCreating` method in your `DbContext` class and you are ready to go
+
+```C#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.ConfigureEnumExt();
+}
 ```
 
 ### Enum.Ext in action
