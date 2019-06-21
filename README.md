@@ -4,6 +4,9 @@
 
 Enum.Ext provides a `TypeSafeEnum` that has a bunch of advantages compared to the normal .NET `Enum` value type.
 
+For example is it possible, to store additional information directly with the enum. You are also able to 
+retrieve an enum based on the information stored with it.
+
 ### Installation 
 https://www.nuget.org/packages/Enum.Ext/
 
