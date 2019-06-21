@@ -4,6 +4,7 @@ using System;
 
 namespace Enum.Ext.Tests
 {
+    [TestFixture]
     public class WeekdayTests
     {
         [SetUp]
@@ -26,6 +27,22 @@ namespace Enum.Ext.Tests
             Weekday value = (Weekday)1;
 
             value.Should().Be(Weekday.Monday);
+        }
+
+        [Test]
+        public void Test_AssignByInt()
+        {
+            Weekday day = (Weekday)2;
+
+            day.Should().Be(Weekday.Tuesday);
+        }
+
+        [Test]
+        public void Test_PrintOutName()
+        {
+            var day = Weekday.Monday;
+
+            day.Name.Should().Be("--Monday--");
         }
 
         [Test]
