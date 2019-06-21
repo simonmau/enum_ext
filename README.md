@@ -4,7 +4,7 @@
 
 Enum.Ext provides a `TypeSafeEnum` that has a bunch of advantages compared to the normal .NET `Enum` value type.
 
-For example is it possible to store additional information directly with the enum. You are also able to 
+For example is it possible to store additional information directly with the enum. You are later on able to 
 query an enum based on the information stored with it.
 
 There is also a Json-Serializer implemented, so you dont have to cast from DTOs manually.
