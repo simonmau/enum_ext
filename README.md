@@ -35,7 +35,7 @@ public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
 }
 ```
 
-Use the your new enum like the native one 
+Use the enum just like the native one 
 
 ```C#
 var day = Weekday.Monday;
