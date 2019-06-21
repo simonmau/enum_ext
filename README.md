@@ -1,6 +1,6 @@
 # Enum.Ext
 
-[![Build Status](https://mauracher.visualstudio.com/enum_ext/_apis/build/status/simonmau.enum_ext?branchName=master)](https://mauracher.visualstudio.com/enum_ext/_build/latest?definitionId=20&branchName=master) [![Version](https://img.shields.io/nuget/v/Enum.Ext.svg)](https://www.nuget.org/packages/Enum.Ext) 
+[![Build Status](https://mauracher.visualstudio.com/enum_ext/_apis/build/status/simonmau.enum_ext?branchName=master)](https://mauracher.visualstudio.com/enum_ext/_build/latest?definitionId=20&branchName=master) [![Version](https://img.shields.io/nuget/v/Enum.Ext.svg)](https://www.nuget.org/packages/Enum.Ext)  [![Downloads](https://img.shields.io/nuget/dt/Enum.Ext.svg)](https://www.nuget.org/packages/Enum.Ext)
 
 Enum.Ext provides a `TypeSafeEnum` that has a bunch of advantages compared to the normal .NET `Enum` value type.
 
@@ -12,10 +12,17 @@ There is also a Json-Serializer implemented, so you dont have to cast from DTOs 
 ### Installation 
 https://www.nuget.org/packages/Enum.Ext/
 
-Enum.Ext can be installed using the following command via the NuGet package manager console:
+`Enum.Ext` can be installed using the following command via the NuGet package manager console:
 
     PM> Install-Package Enum.Ext
 
+
+If you are planning to use the `Enum.Ext` with Entity Framework Core, you should also install `Enum.Ext.EFCore`
+
+https://www.nuget.org/packages/Enum.Ext.EFCore/
+
+
+    PM> Install-Package Enum.Ext.EFCore
 
 ### How to use
 
@@ -56,6 +63,17 @@ var day = Weekday.Monday;
 
 // Prints out '--Monday--'
 Console.WriteLine(day.Name);
+```
+
+#### EF Core configuration
+
+Just add one line to thein `OnModelCreating` method in your `DbContext` class and you are ready to go
+
+```C#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.ConfigureEnumExt();
+}
 ```
 
 ### Enum.Ext in action
