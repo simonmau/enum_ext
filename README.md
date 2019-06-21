@@ -67,7 +67,7 @@ Console.WriteLine(day.Name);
 
 #### EF Core configuration
 
-Just add one line to the `OnModelCreating` method in your `DbContext` class and you are ready to go
+Just add the following line at the end of the `OnModelCreating` method in your `DbContext` class and you are ready to go
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -75,8 +75,6 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     ...
     
     modelBuilder.ConfigureEnumExt();
-    
-    ...
 }
 ```
 
