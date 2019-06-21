@@ -67,7 +67,7 @@ Console.WriteLine(day.Name);
 
 #### EF Core configuration
 
-Just add one line to thein `OnModelCreating` method in your `DbContext` class and you are ready to go
+Just add one line to the `OnModelCreating` method in your `DbContext` class and you are ready to go
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
