@@ -67,10 +67,10 @@ public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
     public DateTime ValidTo { get; private set; }
 
     public static readonly YearlyPrice Price_2018 =
-        new YearlyPrice(1, 15.99m, new DateTime(2018, 1, 1), new DateTime(31, 12, 2018));
+        new YearlyPrice(1, 15.99m, new DateTime(2018, 1, 1), new DateTime(2018, 12, 31));
 
     public static readonly YearlyPrice Price_2019 =
-        new YearlyPrice(1, 16.99m, new DateTime(2019, 1, 1), new DateTime(31, 12, 2019));
+        new YearlyPrice(1, 16.99m, new DateTime(2019, 1, 1), new DateTime(2019, 12, 31));
 
     public YearlyPrice(int id, decimal price, DateTime validFrom, DateTime validTo) : base(id)
     {
