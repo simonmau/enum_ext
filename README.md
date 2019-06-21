@@ -4,10 +4,10 @@
 
 Enum.Ext provides a `TypeSafeEnum` that has a bunch of advantages compared to the normal .NET `Enum` value type.
 
-For example is it possible, to store additional information directly with the enum. You are also able to 
+For example is it possible to store additional information directly with the enum. You are later on able to 
 query an enum based on the information stored with it.
 
-There is also a Json-Serializer Implemented, so you dont have to cast from DTOs manually.
+There is also a Json-Serializer implemented, so you dont have to cast from DTOs manually.
 
 ### Installation 
 https://www.nuget.org/packages/Enum.Ext/
@@ -58,6 +58,10 @@ var day = Weekday.Monday;
 Console.WriteLine(day.Name);
 ```
 
+### Enum.Ext in action
+
+Here you find some examples how you could use the extension.
+
 #### A fixed price that is valid for a certain time period
 ```C#
 public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
@@ -83,8 +87,16 @@ public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
 
     public static YearlyPrice GetPriceByDate(DateTime date)
     {
+        // The List property holds all elements declared above
         return List.FirstOrDefault(x => x.ValidFrom <= date && date <= x.ValidTo);
     }
 }
 ```
 
+Get the according enum for a given date
+```C#
+DateTime date = new DateTime(2018, 5, 3);
+
+// Returns YearlyPrice.Price_2018
+var price = YearlyPrice.GetPriceByDate(date);
+```
