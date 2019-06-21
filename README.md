@@ -2,7 +2,7 @@
 
 [![Build Status](https://mauracher.visualstudio.com/enum_ext/_apis/build/status/simonmau.enum_ext?branchName=master)](https://mauracher.visualstudio.com/enum_ext/_build/latest?definitionId=20&branchName=master) [![Version](https://img.shields.io/nuget/v/Enum.Ext.svg)](https://www.nuget.org/packages/Enum.Ext) 
 
-Enum.Ext provides a `TypeSafeEnum` that has many advantages compared to the normal .NET `Enum` value type.
+Enum.Ext provides a `TypeSafeEnum` that has certain advantages compared to the normal .NET `Enum` value type.
 
 ### Installation 
 https://www.nuget.org/packages/Enum.Ext/
