@@ -20,13 +20,13 @@ Simply inherit your class from `TypeSafeEnum` or `TypeSafeNameEnum` and adjust e
 
 
 
-#### Want a weekday enum with an according string representation for each day?
+#### Want a weekday enum with an special string representation for each day?
 ```C#
 public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
 {
-    public static readonly Weekday Monday = new Weekday(1, "Monday");
-    public static readonly Weekday Tuesday = new Weekday(2, "Tuesday");
-    public static readonly Weekday Wednesday = new Weekday(3, "Wednesday");
+    public static readonly Weekday Monday = new Weekday(1, "--Monday--");
+    public static readonly Weekday Tuesday = new Weekday(2, "--Tuesday--");
+    public static readonly Weekday Wednesday = new Weekday(3, "--Wednesday--");
     ....
 
     public Weekday(int id, string name) : base(id, name)
@@ -49,6 +49,7 @@ and access the additional information easily
 ```C#
 var day = Weekday.Monday;
 
+// Prints out '--Monday--'
 Console.WriteLine(day.Name);
 ```
 
