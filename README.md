@@ -44,6 +44,13 @@ var day = Weekday.Monday;
 day = (Weekday)2;
 ```
 
+and access the additional information easily
+
+```C#
+var day = Weekday.Monday;
+
+Console.WriteLine(day.Name);
+```
 
 #### A fixed price that is valid for a certain time period
 ```C#
