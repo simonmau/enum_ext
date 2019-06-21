@@ -4,6 +4,7 @@ using System;
 
 namespace Enum.Ext.Tests
 {
+    [TestFixture]
     public class WeekdayTests
     {
         [SetUp]
@@ -29,11 +30,27 @@ namespace Enum.Ext.Tests
         }
 
         [Test]
+        public void Test_AssignByInt()
+        {
+            Weekday day = (Weekday)2;
+
+            day.Should().Be(Weekday.Tuesday);
+        }
+
+        [Test]
+        public void Test_PrintOutName()
+        {
+            var day = Weekday.Monday;
+
+            day.Name.Should().Be("--Monday--");
+        }
+
+        [Test]
         public void Test_ThrowsWhenSameId()
         {
-            Action secondInitialize = () => Initialize.InitStaticFields<WrongEnum>();
+            Action initializeWithSameId = () => Initialize.InitStaticFields<WrongEnum>();
 
-            secondInitialize.Should().Throw<TypeInitializationException>();
+            initializeWithSameId.Should().Throw<TypeInitializationException>();
         }
     }
 }
