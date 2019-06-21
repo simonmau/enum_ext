@@ -7,6 +7,8 @@ Enum.Ext provides a `TypeSafeEnum` that has a bunch of advantages compared to th
 For example is it possible, to store additional information directly with the enum. You are also able to 
 query an enum based on the information stored with it.
 
+There is also a Json-Serializer Implemented, so you dont have to cast from DTOs manually.
+
 ### Installation 
 https://www.nuget.org/packages/Enum.Ext/
 
