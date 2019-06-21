@@ -4,8 +4,8 @@ using System.Reflection;
 
 namespace Enum.Ext.EFCore
 {
-    public class TypeSafeEnumConverter<T, TKey> : ValueConverter<T, TKey>
-        where T : TypeSafeEnum<T, TKey>
+    public class TypeSafeEnumConverter<TValue, TKey> : ValueConverter<TValue, TKey>
+        where TValue : TypeSafeEnum<TValue, TKey>
         where TKey : struct
     {
         private static bool CanConvert(Type objectType)
@@ -50,17 +50,17 @@ namespace Enum.Ext.EFCore
             return null;
         }
 
-        public static T GetFromKey(TKey key)
+        public static TValue GetFromKey(TKey key)
         {
-            if (!CanConvert(typeof(T)))
+            if (!CanConvert(typeof(TValue)))
             {
                 throw new NotImplementedException();
             }
 
-            var keyType = GetKeyType(typeof(T));
-            var method = GetBaseMethod(typeof(T));
+            var keyType = GetKeyType(typeof(TValue));
+            var method = GetBaseMethod(typeof(TValue));
 
-            return method.Invoke(null, new[] { (object)key }) as T;
+            return method.Invoke(null, new[] { (object)key }) as TValue;
         }
 
         public TypeSafeEnumConverter() : base(value => value.Id, key => GetFromKey(key), null)
