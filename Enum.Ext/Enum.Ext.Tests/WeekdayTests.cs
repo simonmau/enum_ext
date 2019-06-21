@@ -1,9 +1,10 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using NUnit.Framework;
 using System;
 
 namespace Enum.Ext.Tests
 {
-    public class BasicTests
+    public class WeekdayTests
     {
         [SetUp]
         public void InitWeekday()
@@ -16,7 +17,7 @@ namespace Enum.Ext.Tests
         {
             int value = Weekday.Monday;
 
-            Assert.AreEqual(1, value);
+            value.Should().Be(1);
         }
 
         [Test]
@@ -24,13 +25,15 @@ namespace Enum.Ext.Tests
         {
             Weekday value = (Weekday)1;
 
-            Assert.AreEqual(Weekday.Monday, value);
+            value.Should().Be(Weekday.Monday);
         }
 
         [Test]
         public void Test_ThrowsWhenSameId()
         {
-            Assert.Throws<TypeInitializationException>(() => Initialize.InitStaticFields<WrongEnum>());
+            Action secondInitialize = () => Initialize.InitStaticFields<WrongEnum>();
+
+            secondInitialize.Should().Throw<TypeInitializationException>();
         }
     }
 }
