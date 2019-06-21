@@ -10,9 +10,17 @@ namespace Enum.Ext.EFCore.Tests.DbContext
             Enum.Ext.Initialize.InitStaticFields<Weekday>();
         }
 
+        public TestDbContext(DbContextOptions<TestDbContext> options) : base(options)
+        { }
+
+        public TestDbContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=:memory:;");
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlite("Data Source=:memory:;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

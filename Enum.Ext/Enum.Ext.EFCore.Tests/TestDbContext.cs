@@ -1,5 +1,7 @@
 using Enum.Ext.EFCore.Tests;
 using Enum.Ext.EFCore.Tests.DbContext;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System.Linq;
 
@@ -10,21 +12,34 @@ namespace Tests
         [Test]
         public void Test_SaveData()
         {
-            using (var db = new TestDbContext())
+            // In-memory database only exists while the connection is open
+            using (var connection = new SqliteConnection("DataSource=:memory:"))
             {
-                db.Database.EnsureCreated();
+                connection.Open();
 
-                db.SomeEntities.Add(new Enum.Ext.EFCore.Tests.DbContext.Entities.SomeEntity
+                var options = new DbContextOptionsBuilder<TestDbContext>()
+                    .UseSqlite(connection)
+                    .Options;
+
+                using (var db = new TestDbContext(options))
                 {
-                    Weekday = Weekday.Thursday,
-                });
+                    db.Database.EnsureCreated();
 
-                db.SaveChanges();
+                    db.SomeEntities.Add(new Enum.Ext.EFCore.Tests.DbContext.Entities.SomeEntity
+                    {
+                        Weekday = Weekday.Thursday,
+                    });
 
-                var entities = db.SomeEntities.ToList();
+                    db.SaveChanges();
+                }
 
-                Assert.AreEqual(1, entities.Count);
-                Assert.AreEqual(Weekday.Thursday, entities.Single().Weekday);
+                using (var db = new TestDbContext(options))
+                {
+                    var entities = db.SomeEntities.ToList();
+
+                    Assert.AreEqual(1, entities.Count);
+                    Assert.AreEqual(Weekday.Thursday, entities.Single().Weekday);
+                }
             }
         }
     }
