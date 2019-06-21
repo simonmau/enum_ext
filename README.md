@@ -72,7 +72,11 @@ Just add one line to the `OnModelCreating` method in your `DbContext` class and 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
+    ...
+    
     modelBuilder.ConfigureEnumExt();
+    
+    ...
 }
 ```
 
