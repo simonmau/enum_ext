@@ -60,6 +60,7 @@ public sealed class YearlyPrice : TypeSafeEnum<YearlyPrice, int>
 
     public YearlyPrice GetPriceByDate(DateTime date)
     {
+        // The List property contains all Elements declared above
         return List.FirstOrDefault(x => x.ValidFrom <= date && date <= ValidTo);
     }
 }
