@@ -19,7 +19,7 @@ namespace Enum.Ext.Tests
         public static readonly YearlyPrice Price_2019 =
             new YearlyPrice(2, 16.99m, new DateTime(2019, 1, 1), new DateTime(2019, 12, 31));
 
-        public YearlyPrice(int id, decimal price, DateTime validFrom, DateTime validTo) : base(id)
+        private YearlyPrice(int id, decimal price, DateTime validFrom, DateTime validTo) : base(id)
         {
             ValidFrom = validFrom;
             ValidTo = validTo;
