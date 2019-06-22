@@ -71,6 +71,17 @@ var day = Weekday.Monday;
 Console.WriteLine(day.Name);
 ```
 
+#### Initialization via assembly 
+
+If you want to initialize all enums of an assembly at once, you can use  
+
+
+```C#
+Assembly assembly = ...
+
+Initialize.InitEnumExt(assembly);
+```
+
 #### EF Core configuration
 
 Just add the following line at the end of the `OnModelCreating` method in your `DbContext` class and you are ready to go
