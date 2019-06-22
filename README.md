@@ -47,7 +47,13 @@ public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
 }
 ```
 
-Use the enum just like the native one 
+Initialize the enum at program start
+
+```C#
+Initialize.InitEnumExt<Weekday>();
+```
+
+then use it just like the native one 
 
 ```C#
 var day = Weekday.Monday;
