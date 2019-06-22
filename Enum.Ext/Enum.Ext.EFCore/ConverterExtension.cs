@@ -29,6 +29,12 @@ namespace Enum.Ext.EFCore
         private static bool IsDerived(Type objectType)
         {
             Type currentType = objectType.BaseType;
+
+            if (currentType == null)
+            {
+                return false;
+            }
+
             while (currentType != typeof(object))
             {
                 if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() == typeof(TypeSafeEnum<,>))
@@ -43,6 +49,12 @@ namespace Enum.Ext.EFCore
         private static Type GetKeyType(Type objectType)
         {
             Type currentType = objectType.BaseType;
+
+            if (currentType == null)
+            {
+                return null;
+            }
+
             while (currentType != typeof(object))
             {
                 if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() == typeof(TypeSafeEnum<,>))
