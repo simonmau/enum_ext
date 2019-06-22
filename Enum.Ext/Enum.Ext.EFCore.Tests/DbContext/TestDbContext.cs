@@ -7,7 +7,7 @@ namespace Enum.Ext.EFCore.Tests.DbContext
     {
         static TestDbContext()
         {
-            Enum.Ext.Initialize.InitStaticFields<Weekday>();
+            Enum.Ext.Initialize.InitEnumExt<Weekday>();
         }
 
         public TestDbContext(DbContextOptions<TestDbContext> options) : base(options)
