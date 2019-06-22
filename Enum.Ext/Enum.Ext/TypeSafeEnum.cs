@@ -26,6 +26,9 @@ namespace Enum.Ext
 
         public TKey Id { get; private set; }
 
+        /// <summary>
+        /// Holds all declared values of the specific enum.
+        /// </summary>
         public static IEnumerable<TValue> List => _list ?? (_list = Dictionary.Values.Cast<TValue>());
 
         public static TypeSafeEnum<TValue, TKey> GetById(TKey value)

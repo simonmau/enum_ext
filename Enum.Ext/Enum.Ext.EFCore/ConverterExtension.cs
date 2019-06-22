@@ -7,6 +7,11 @@ namespace Enum.Ext.EFCore
 {
     public static class ConverterExtension
     {
+        /// <summary>
+        /// Adds a converter for all properties derived from <see cref="TypeSafeEnum{TValue, TKey}"/> so that entity framework core
+        /// can work with it.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         public static void ConfigureEnumExt(this ModelBuilder modelBuilder)
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
