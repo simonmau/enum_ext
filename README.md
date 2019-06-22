@@ -71,7 +71,7 @@ var day = Weekday.Monday;
 Console.WriteLine(day.Name);
 ```
 
-### Initialization via assembly 
+#### Initialization via assembly 
 
 If you want to initialize all enums of an assembly at once, you can use  
 
