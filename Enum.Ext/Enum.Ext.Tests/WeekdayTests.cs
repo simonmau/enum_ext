@@ -10,7 +10,7 @@ namespace Enum.Ext.Tests
         [SetUp]
         public void InitWeekday()
         {
-            Initialize.InitStaticFields<Weekday>();
+            Initialize.InitEnumExt<Weekday>();
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace Enum.Ext.Tests
         [Test]
         public void Test_ThrowsWhenSameId()
         {
-            Action initializeWithSameId = () => Initialize.InitStaticFields<WrongEnum>();
+            Action initializeWithSameId = () => Initialize.InitEnumExt<WrongEnum>();
 
             initializeWithSameId.Should().Throw<TypeInitializationException>();
         }

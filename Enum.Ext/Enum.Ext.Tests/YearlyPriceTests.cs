@@ -12,7 +12,7 @@ namespace Enum.Ext.Tests
         [SetUp]
         public void InitYearlyPrice()
         {
-            Initialize.InitStaticFields<YearlyPrice>();
+            Initialize.InitEnumExt<YearlyPrice>();
         }
 
         [Test]

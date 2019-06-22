@@ -11,7 +11,7 @@ namespace Enum.Ext.Tests
         [SetUp]
         public void InitWeekday()
         {
-            Initialize.InitStaticFields<Weekday>();
+            Initialize.InitEnumExt<Weekday>();
         }
 
         [Test]

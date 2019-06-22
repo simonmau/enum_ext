@@ -11,11 +11,12 @@ namespace Enum.Ext.EFCore
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
-                var properties = entityType.ClrType.GetProperties().Where(p => IsDerived(p.PropertyType));
+                var properties = entityType.ClrType.GetProperties()
+                    .Where(p => TypeUtil.IsDerived(p.PropertyType, typeof(TypeSafeEnum<,>)));
 
                 foreach (var property in properties)
                 {
-                    var keyType = GetKeyType(property.PropertyType);
+                    var keyType = TypeUtil.GetKeyType(property.PropertyType, typeof(TypeSafeEnum<,>));
 
                     var converterType = typeof(TypeSafeEnumConverter<,>).MakeGenericType(property.PropertyType, keyType);
 
@@ -24,46 +25,6 @@ namespace Enum.Ext.EFCore
                     modelBuilder.Entity(entityType.Name).Property(property.Name).HasConversion(converter);
                 }
             }
-        }
-
-        private static bool IsDerived(Type objectType)
-        {
-            Type currentType = objectType.BaseType;
-
-            if (currentType == null)
-            {
-                return false;
-            }
-
-            while (currentType != typeof(object))
-            {
-                if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() == typeof(TypeSafeEnum<,>))
-                    return true;
-
-                currentType = currentType.BaseType;
-            }
-
-            return false;
-        }
-
-        private static Type GetKeyType(Type objectType)
-        {
-            Type currentType = objectType.BaseType;
-
-            if (currentType == null)
-            {
-                return null;
-            }
-
-            while (currentType != typeof(object))
-            {
-                if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() == typeof(TypeSafeEnum<,>))
-                    return currentType.GenericTypeArguments[1];
-
-                currentType = currentType.BaseType;
-            }
-
-            return null;
         }
     }
 }

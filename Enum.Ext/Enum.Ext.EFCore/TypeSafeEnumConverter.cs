@@ -10,35 +10,23 @@ namespace Enum.Ext.EFCore
     {
         private static bool CanConvert(Type objectType)
         {
-            Type currentType = objectType.BaseType;
-            while (currentType != typeof(object))
-            {
-                if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() == typeof(TypeSafeEnum<,>))
-                    return true;
-
-                currentType = currentType.BaseType;
-            }
-
-            return false;
+            return TypeUtil.IsDerived(objectType, typeof(TypeSafeEnum<,>));
         }
 
         private static Type GetKeyType(Type objectType)
         {
-            Type currentType = objectType.BaseType;
-            while (currentType != typeof(object))
-            {
-                if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() == typeof(TypeSafeEnum<,>))
-                    return currentType.GenericTypeArguments[1];
-
-                currentType = currentType.BaseType;
-            }
-
-            return null;
+            return TypeUtil.GetKeyType(objectType, typeof(TypeSafeEnum<,>));
         }
 
         private static MethodInfo GetBaseMethod(Type objectType)
         {
             Type currentType = objectType.BaseType;
+
+            if (currentType == null)
+            {
+                return null;
+            }
+
             while (currentType != typeof(object))
             {
                 if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() == typeof(TypeSafeEnum<,>))
