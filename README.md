@@ -47,7 +47,7 @@ public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
 }
 ```
 
-Initialze the enum at the program start
+Initialize the enum at program start
 
 ```C#
 Initialize.InitEnumExt<Weekday>();
