@@ -10,7 +10,7 @@
         public static readonly Weekday Saturday = new Weekday(6, "Saturday");
         public static readonly Weekday Sunday = new Weekday(7, "Sunday");
 
-        public Weekday(int id, string name) : base(id, name)
+        private Weekday(int id, string name) : base(id, name)
         {
         }
     }

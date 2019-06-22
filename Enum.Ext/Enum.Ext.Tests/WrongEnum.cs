@@ -5,7 +5,7 @@
         public static readonly WrongEnum True = new WrongEnum(1);
         public static readonly WrongEnum False = new WrongEnum(1);
 
-        public WrongEnum(int id) : base(id)
+        private WrongEnum(int id) : base(id)
         {
         }
     }
