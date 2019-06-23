@@ -13,11 +13,6 @@ namespace Enum.Ext.EFCore
             return TypeUtil.IsDerived(objectType, typeof(TypeSafeEnum<,>));
         }
 
-        private static Type GetKeyType(Type objectType)
-        {
-            return TypeUtil.GetKeyType(objectType, typeof(TypeSafeEnum<,>));
-        }
-
         private static MethodInfo GetBaseMethod(Type objectType)
         {
             Type currentType = objectType.BaseType;
@@ -45,7 +40,6 @@ namespace Enum.Ext.EFCore
                 throw new NotImplementedException();
             }
 
-            var keyType = GetKeyType(typeof(TValue));
             var method = GetBaseMethod(typeof(TValue));
 
             return method.Invoke(null, new[] { (object)key }) as TValue;

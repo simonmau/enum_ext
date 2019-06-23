@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Enum.Ext.EFCore
 {
-    public static class ConverterExtension
+    public static class Extensions
     {
         /// <summary>
         /// Adds a converter for all properties derived from <see cref="TypeSafeEnum{TValue, TKey}"/> so that entity framework core
