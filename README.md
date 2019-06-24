@@ -23,6 +23,12 @@ https://www.nuget.org/packages/Enum.Ext.EFCore/
 
 
     PM> Install-Package Enum.Ext.EFCore
+    
+List of all packages that we currently offer: 
+
+    PM> Install-Package Enum.Ext
+    PM> Install-Package Enum.Ext.EFCore
+    PM> Install-Package Enum.Ext.AutoFixture
 
 ### How to use
 
@@ -93,6 +99,15 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     
     modelBuilder.ConfigureEnumExt();
 }
+```
+
+#### Usage with AutoFixture
+
+```C#
+var fixture = new Fixture();
+fixture.WithEnumExt();
+
+var weekday = fixture.Create<Weekday>();
 ```
 
 ### Enum.Ext in action
