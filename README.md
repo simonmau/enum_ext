@@ -53,13 +53,7 @@ public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
 }
 ```
 
-Initialize the enum at program start
-
-```C#
-Initialize.InitEnumExt<Weekday>();
-```
-
-then use it just like the native one 
+use it just like the native one 
 
 ```C#
 var day = Weekday.Monday;
@@ -75,17 +69,6 @@ var day = Weekday.Monday;
 
 // Prints out '--Monday--'
 Console.WriteLine(day.Name);
-```
-
-#### Initialization via assembly 
-
-If you want to initialize all enums of an assembly at once, you can use  
-
-
-```C#
-Assembly assembly = ...
-
-Initialize.InitEnumExt(assembly);
 ```
 
 #### EF Core configuration
