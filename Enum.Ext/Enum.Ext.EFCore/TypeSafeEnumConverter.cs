@@ -6,7 +6,7 @@ namespace Enum.Ext.EFCore
 {
     public class TypeSafeEnumConverter<TValue, TKey> : ValueConverter<TValue, TKey>
         where TValue : TypeSafeEnum<TValue, TKey>
-        where TKey : struct
+        where TKey : struct, IEquatable<TKey>, IComparable<TKey>
     {
         private static bool CanConvert(Type objectType)
         {

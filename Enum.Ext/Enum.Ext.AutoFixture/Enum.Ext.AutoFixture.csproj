@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.10.0" />
-    <PackageReference Include="Enum.Ext" Version="1.0.3" />
+    <PackageReference Include="Enum.Ext" Version="1.0.4" />
   </ItemGroup>
 
 </Project>
