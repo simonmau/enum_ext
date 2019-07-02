@@ -38,5 +38,27 @@ namespace Enum.Ext.Tests
 
             day.Name.Should().Be("--Monday--");
         }
+
+        [TestCase(1, 1)]
+        [TestCase(2, 2)]
+        public void Test_SwitchStatement(int dayInt, int expectedBranch)
+        {
+            var day = (Weekday)dayInt;
+
+            int branch = 0;
+
+            switch (day)
+            {
+                case var _ when day == Weekday.Monday:
+                    branch = 1;
+                    break;
+
+                case var _ when day == Weekday.Tuesday:
+                    branch = 2;
+                    break;
+            }
+
+            branch.Should().Be(expectedBranch);
+        }
     }
 }

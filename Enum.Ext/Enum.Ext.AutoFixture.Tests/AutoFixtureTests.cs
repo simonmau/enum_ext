@@ -6,12 +6,6 @@ namespace Enum.Ext.AutoFixture.Tests
 {
     public class Tests
     {
-        [SetUp]
-        public void InitWeekday()
-        {
-            Initialize.InitEnumExt<Weekday>();
-        }
-
         [Test]
         public void AutoFixture_ShouldReturnValidEnum()
         {
