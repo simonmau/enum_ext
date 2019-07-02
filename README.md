@@ -71,6 +71,23 @@ var day = Weekday.Monday;
 Console.WriteLine(day.Name);
 ```
 
+#### Usage with a switch statment
+
+```C#
+var day = Weekday.Monday;
+
+switch (day)
+{
+    case var _ when day == Weekday.Monday:
+        // Do stuff
+        break;
+
+    case var _ when day == Weekday.Tuesday:
+        // Do Stuff
+        break;
+}
+```
+
 #### EF Core configuration
 
 Just add the following line at the end of the `OnModelCreating` method in your `DbContext` class and you are ready to go
