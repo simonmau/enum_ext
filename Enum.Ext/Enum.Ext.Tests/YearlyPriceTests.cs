@@ -9,12 +9,6 @@ namespace Enum.Ext.Tests
     [TestFixture]
     public class YearlyPriceTests
     {
-        [SetUp]
-        public void InitYearlyPrice()
-        {
-            Initialize.InitEnumExt<YearlyPrice>();
-        }
-
         [Test]
         public void QueryByDate_ShouldReturnCorrectEnum()
         {

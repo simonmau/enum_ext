@@ -8,12 +8,6 @@ namespace Enum.Ext.Tests
 {
     public class ConvertTests
     {
-        [SetUp]
-        public void InitWeekday()
-        {
-            Initialize.InitEnumExt<Weekday>();
-        }
-
         [Test]
         public void Test_ConvertToJson()
         {

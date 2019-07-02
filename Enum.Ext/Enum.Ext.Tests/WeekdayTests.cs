@@ -7,12 +7,6 @@ namespace Enum.Ext.Tests
     [TestFixture]
     public class WeekdayTests
     {
-        [SetUp]
-        public void InitWeekday()
-        {
-            Initialize.InitEnumExt<Weekday>();
-        }
-
         [Test]
         public void Test_ConvertToInt()
         {
@@ -43,14 +37,6 @@ namespace Enum.Ext.Tests
             var day = Weekday.Monday;
 
             day.Name.Should().Be("--Monday--");
-        }
-
-        [Test]
-        public void Test_ThrowsWhenSameId()
-        {
-            Action initializeWithSameId = () => Initialize.InitEnumExt<WrongEnum>();
-
-            initializeWithSameId.Should().Throw<TypeInitializationException>();
         }
     }
 }
