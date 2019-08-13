@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.0.4.0</Version>
     <Authors>Mauracher Simon, Juen Marcel</Authors>
@@ -13,7 +13,9 @@
       Implementation of a TypeSafeEnum, so you dont have to look it up and copy it in every project.
       Now with Support for AutoFixture.
     </Description>
-  </PropertyGroup>
+     <LangVersion>8.0</LangVersion>
+    <NullableContextOptions>enable</NullableContextOptions>
+ </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\LICENSE">
@@ -23,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoFixture" Version="4.10.0" />
+    <PackageReference Include="AutoFixture" Version="4.11.0" />
     <PackageReference Include="Enum.Ext" Version="1.0.4" />
   </ItemGroup>
 

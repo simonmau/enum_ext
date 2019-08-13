@@ -1,14 +1,17 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Reflection;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Enum.Ext.Converter
 {
-    public class JsonTypeSafeEnumConverter : JsonConverter
+    public class JsonTypeSafeEnumConverter<TValue, TKey> : JsonConverter<TypeSafeEnum<TValue, TKey>>
+        where TValue : TypeSafeEnum<TValue, TKey>
+        where TKey : struct, IEquatable<TKey>, IComparable<TKey>
     {
-        public override bool CanConvert(Type objectType)
+        public override bool CanConvert(Type typeToConvert)
         {
-            return TypeUtil.IsDerived(objectType, typeof(TypeSafeEnum<,>));
+            return TypeUtil.IsDerived(typeToConvert, typeof(TypeSafeEnum<,>));
         }
 
         private Type GetKeyType(Type objectType)
@@ -36,27 +39,26 @@ namespace Enum.Ext.Converter
             return null;
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override TypeSafeEnum<TValue, TKey> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            if (!CanConvert(objectType))
+            if (!CanConvert(typeToConvert))
             {
                 throw new NotImplementedException();
             }
 
-            var keyType = GetKeyType(objectType);
-            var method = GetBaseMethod(objectType);
+            var keyType = GetKeyType(typeToConvert);
+            var method = GetBaseMethod(typeToConvert);
 
-            return method.Invoke(null, new[] { Convert.ChangeType(reader.Value, keyType) });
+            var id = JsonSerializer.Deserialize(ref reader, keyType, options);
+
+            return (TypeSafeEnum<TValue, TKey>)method.Invoke(null, new[] { Convert.ChangeType(id, keyType) });
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void Write(Utf8JsonWriter writer, TypeSafeEnum<TValue, TKey> value, JsonSerializerOptions options)
         {
-            var idProperty = value.GetType().GetProperty("Id");
-
-            var ser = new JsonSerializer();
-            ser.Serialize(writer, idProperty.GetValue(value));
+            JsonSerializer.Serialize(writer, value.Id, options);
         }
 
-        public override bool CanRead => true;
+        public bool CanRead => true;
     }
 }

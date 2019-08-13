@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.0.4.0</Version>
     <Authors>Mauracher Simon, Juen Marcel</Authors>
@@ -11,6 +11,8 @@
     <PackageIconUrl>https://github.com/simonmau/enum_ext/blob/master/Resources/Logo/EXT_64.png?raw=true</PackageIconUrl>
     <Description>Implementation of a TypeSafeEnum, so you dont have to look it up and copy it in every project.
 With Support for JSON Serialization &amp; EF Core.</Description>
+    <LangVersion>8.0</LangVersion>
+    <NullableContextOptions>enable</NullableContextOptions>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,7 +24,7 @@ With Support for JSON Serialization &amp; EF Core.</Description>
 
   <ItemGroup>
     <PackageReference Include="Enum.Ext" Version="1.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
   </ItemGroup>
 
 </Project>

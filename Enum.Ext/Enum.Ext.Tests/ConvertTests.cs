@@ -1,8 +1,5 @@
-﻿using Newtonsoft.Json;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using NUnit.Framework;
+using System.Text.Json;
 
 namespace Enum.Ext.Tests
 {
@@ -16,7 +13,7 @@ namespace Enum.Ext.Tests
                 Weekday = Weekday.Monday
             };
 
-            var json = JsonConvert.SerializeObject(tempClass);
+            var json = JsonSerializer.Serialize<ClassToSerialize>(tempClass);
 
             Assert.AreEqual("{\"Weekday\":1}", json);
         }
@@ -24,7 +21,7 @@ namespace Enum.Ext.Tests
         [Test]
         public void Test_ConvertFromJson()
         {
-            var tempClass = JsonConvert.DeserializeObject<ClassToSerialize>("{\"Weekday\":1}");
+            var tempClass = JsonSerializer.Deserialize<ClassToSerialize>("{\"Weekday\":1}");
 
             Assert.AreEqual(Weekday.Monday, tempClass.Weekday);
         }

@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System;
-using Newtonsoft.Json;
-using Enum.Ext.Converter;
 using System.Reflection;
+using System.Text.Json.Serialization;
+using Enum.Ext.Converter;
 
 namespace Enum.Ext
 {
-    [JsonConverter(typeof(JsonTypeSafeEnumConverter))]
     public abstract class TypeSafeEnum<TValue, TKey> : IEquatable<TypeSafeEnum<TValue, TKey>>, IComparable<TypeSafeEnum<TValue, TKey>>
         where TKey : struct, IEquatable<TKey>, IComparable<TKey>
         where TValue : TypeSafeEnum<TValue, TKey>
@@ -21,7 +20,7 @@ namespace Enum.Ext
             Id = id;
         }
 
-        public TKey Id { get; private set; }
+        public TKey Id { get; }
 
         /// <summary>
         /// Holds all declared values of the specific enum.
