@@ -7,6 +7,7 @@ pool:
 steps:
 - task: UseDotNet@2
   inputs:
+    version: '3.0.100-preview7-012821'
     packageType: 'sdk'
 
 - task: DotNetCoreCLI@2
