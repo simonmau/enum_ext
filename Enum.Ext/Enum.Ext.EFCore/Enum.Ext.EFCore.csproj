@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4.0</Version>
+    <Version>1.0.5-preview7</Version>
     <Authors>Mauracher Simon, Juen Marcel</Authors>
     <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
     <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
@@ -23,7 +23,7 @@ With Support for JSON Serialization &amp; EF Core.</Description>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enum.Ext" Version="1.0.4" />
+    <PackageReference Include="Enum.Ext" Version="1.0.5-preview7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
   </ItemGroup>
 

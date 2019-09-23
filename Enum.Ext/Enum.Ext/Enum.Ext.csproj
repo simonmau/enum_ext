@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.5-preview7</Version>
+    <Version>1.0.6</Version>
     <Authors>Mauracher Simon, Juen Marcel</Authors>
     <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
     <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
