@@ -23,7 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Enum.Ext.EFCore\Enum.Ext.EFCore.csproj" />
     <ProjectReference Include="..\Enum.Ext.Tests.Shared\Enum.Ext.Tests.Shared.csproj" />
-    <ProjectReference Include="..\Enum.Ext\Enum.Ext.csproj" />
   </ItemGroup>
 
 </Project>
