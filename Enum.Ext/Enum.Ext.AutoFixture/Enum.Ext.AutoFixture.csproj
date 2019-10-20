@@ -13,8 +13,6 @@
       Implementation of a TypeSafeEnum, so you dont have to look it up and copy it in every project.
       Now with Support for AutoFixture.
     </Description>
-     <LangVersion>8.0</LangVersion>
-    <NullableContextOptions>enable</NullableContextOptions>
  </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.11.0" />
-    <PackageReference Include="Enum.Ext" Version="1.0.5-preview7" />
+    <PackageReference Include="Enum.Ext" Version="1.0.4" />
   </ItemGroup>
 
 </Project>
