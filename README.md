@@ -126,7 +126,6 @@ public void ConfigureServices(IServiceCollection services)
     ...
 }
 
-
 // with System.Text.Json
 public void ConfigureServices(IServiceCollection services)
 {
