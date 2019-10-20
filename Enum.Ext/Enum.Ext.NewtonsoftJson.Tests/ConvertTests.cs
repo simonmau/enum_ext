@@ -1,4 +1,3 @@
-using Enum.Ext.NewtonsoftJson.Converter;
 using Enum.Ext.Tests;
 using Enum.Ext.Tests.Shared;
 using FluentAssertions;

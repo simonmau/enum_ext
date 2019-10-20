@@ -2,10 +2,27 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.6.0</Version>
+    <Authors>Mauracher Simon, Juen Marcel</Authors>
+    <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIconUrl>https://github.com/simonmau/enum_ext/blob/master/Resources/Logo/EXT_64.png?raw=true</PackageIconUrl>
+    <Description>
+      This package adds System.Text.Json converters for Enum.Ext
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enum.Ext" Version="1.0.4" />
+    <None Include="..\..\LICENSE" Link="LICENSE">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Enum.Ext" Version="1.0.6" />
     <PackageReference Include="System.Text.Json" Version="4.6.0" />
   </ItemGroup>
 

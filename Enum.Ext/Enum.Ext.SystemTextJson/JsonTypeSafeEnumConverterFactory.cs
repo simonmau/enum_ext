@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Enum.Ext.SystemTextJson.Converter
+namespace Enum.Ext.SystemTextJson
 {
     public class JsonTypeSafeEnumConverterFactory : JsonConverterFactory
     {

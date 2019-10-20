@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Enum.Ext.NewtonsoftJson.Converter
+namespace Enum.Ext.NewtonsoftJson
 {
     public class JsonTypeSafeEnumConverter : JsonConverter
     {

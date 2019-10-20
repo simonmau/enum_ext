@@ -1,4 +1,4 @@
-﻿using Enum.Ext.NewtonsoftJson.Converter;
+﻿using Enum.Ext.NewtonsoftJson;
 
 namespace Enum.Ext.Tests
 {

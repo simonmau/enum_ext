@@ -1,4 +1,4 @@
-﻿using Enum.Ext.SystemTextJson.Converter;
+﻿using Enum.Ext.SystemTextJson;
 using Enum.Ext.Tests.Shared;
 
 using System.Text.Json.Serialization;

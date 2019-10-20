@@ -1,5 +1,4 @@
-﻿using Enum.Ext.SystemTextJson.Converter;
-using Enum.Ext.Tests;
+﻿using Enum.Ext.Tests;
 using Enum.Ext.Tests.Shared;
 using FluentAssertions;
 using NUnit.Framework;
