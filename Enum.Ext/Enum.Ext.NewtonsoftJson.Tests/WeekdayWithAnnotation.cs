@@ -1,10 +1,8 @@
 ﻿using Enum.Ext.NewtonsoftJson.Converter;
 
-using System.Text.Json.Serialization;
-
 namespace Enum.Ext.Tests
 {
-    [JsonConverter(typeof(JsonTypeSafeEnumConverter))]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonTypeSafeEnumConverter))]
     public sealed class WeekdayWithAnnotation : TypeSafeNameEnum<WeekdayWithAnnotation, int>
     {
         public static readonly WeekdayWithAnnotation Monday = new WeekdayWithAnnotation(1, "--Monday--");

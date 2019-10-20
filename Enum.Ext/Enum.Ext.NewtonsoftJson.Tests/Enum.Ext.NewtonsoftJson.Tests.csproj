@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Enum.Ext.NewtonsoftJson\Enum.Ext.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\Enum.Ext.Tests.Shared\Enum.Ext.Tests.Shared.csproj" />
   </ItemGroup>
 
 </Project>
