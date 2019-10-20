@@ -45,6 +45,11 @@ namespace Enum.Ext.NewtonsoftJson.Converter
                 throw new NotImplementedException();
             }
 
+            if (reader.Value == null)
+            {
+                return null;
+            }
+
             var keyType = GetKeyType(objectType);
             var method = GetBaseMethod(objectType);
 

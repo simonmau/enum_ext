@@ -62,6 +62,27 @@ namespace Enum.Ext.SystemTextJson.Tests
             tempClass.Weekday.Should().Be(WeekdayWithAnnotation.Monday);
         }
 
+        [Test]
+        public void Test_ConvertNullToJsonWithAnnotation()
+        {
+            var tempClass = new ClassToSerializeWithAnnotation
+            {
+                Weekday = null
+            };
+
+            var json = JsonSerializer.Serialize(tempClass);
+
+            json.Should().Be("{\"Weekday\":null}");
+        }
+
+        [Test]
+        public void Test_ConvertToNullFromJsonValueWithAnnotation()
+        {
+            var tempClass = JsonSerializer.Deserialize<ClassToSerializeWithAnnotation>("{\"Weekday\":null}");
+
+            tempClass.Weekday.Should().Be(null);
+        }
+
         public class ClassToSerialize
         {
             public Weekday Weekday { get; set; }

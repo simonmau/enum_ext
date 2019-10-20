@@ -61,6 +61,27 @@ namespace Enum.Ext.NewtonsoftJson.Tests
             tempClass.Weekday.Should().Be(WeekdayWithAnnotation.Monday);
         }
 
+        [Test]
+        public void Test_ConvertNullToJsonWithAnnotation()
+        {
+            var tempClass = new ClassToSerializeWithAnnotation
+            {
+                Weekday = null
+            };
+
+            var json = JsonConvert.SerializeObject(tempClass);
+
+            json.Should().Be("{\"Weekday\":null}");
+        }
+
+        [Test]
+        public void Test_ConvertToNullFromJsonValueWithAnnotation()
+        {
+            var tempClass = JsonConvert.DeserializeObject<ClassToSerializeWithAnnotation>("{\"Weekday\":null}");
+
+            tempClass.Weekday.Should().Be(null);
+        }
+
         public class ClassToSerialize
         {
             public Weekday Weekday { get; set; }
@@ -68,7 +89,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
 
         public class ClassToSerializeWithAnnotation
         {
-            public WeekdayWithAnnotation Weekday { get; set; }
+            public WeekdayWithAnnotation? Weekday { get; set; }
         }
     }
 }
