@@ -1,10 +1,6 @@
-﻿using Enum.Ext.Converter;
-using System.Text.Json.Serialization;
-
-namespace Enum.Ext.Tests
+﻿namespace Enum.Ext.Tests.Shared
 {
-    [JsonConverter(typeof(JsonTypeSafeEnumConverter<Weekday, int>))]
-    public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
+    public class Weekday : TypeSafeNameEnum<Weekday, int>
     {
         public static readonly Weekday Monday = new Weekday(1, "--Monday--");
         public static readonly Weekday Tuesday = new Weekday(2, "--Tuesday--");
@@ -14,7 +10,7 @@ namespace Enum.Ext.Tests
         public static readonly Weekday Saturday = new Weekday(6, "--Saturday--");
         public static readonly Weekday Sunday = new Weekday(7, "--Sunday--");
 
-        private Weekday(int id, string name) : base(id, name)
+        protected Weekday(int id, string name) : base(id, name)
         {
         }
     }

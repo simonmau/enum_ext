@@ -11,9 +11,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.EFCore", "Enum.Ext
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.EFCore.Tests", "Enum.Ext.EFCore.Tests\Enum.Ext.EFCore.Tests.csproj", "{F4510B30-62E3-439C-A224-FEEC0D5D06E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.AutoFixture", "Enum.Ext.AutoFixture\Enum.Ext.AutoFixture.csproj", "{65165A68-C71F-4B32-A8E9-0483B8BB3D22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.AutoFixture", "Enum.Ext.AutoFixture\Enum.Ext.AutoFixture.csproj", "{65165A68-C71F-4B32-A8E9-0483B8BB3D22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.AutoFixture.Tests", "Enum.Ext.AutoFixture.Tests\Enum.Ext.AutoFixture.Tests.csproj", "{46647C7A-1567-4548-BAD0-D8BE34F0BA78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.AutoFixture.Tests", "Enum.Ext.AutoFixture.Tests\Enum.Ext.AutoFixture.Tests.csproj", "{46647C7A-1567-4548-BAD0-D8BE34F0BA78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.SystemTextJson", "Enum.Ext.SystemTextJson\Enum.Ext.SystemTextJson.csproj", "{23B7470C-C875-44CD-9E2B-32A32E589CF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.NewtonsoftJson", "Enum.Ext.NewtonsoftJson\Enum.Ext.NewtonsoftJson.csproj", "{DC452C4D-F4C8-412D-ACBC-515F58DE0526}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.SystemTextJson.Tests", "Enum.Ext.SystemTextJson.Tests\Enum.Ext.SystemTextJson.Tests.csproj", "{7CD4AAB0-4061-456F-A7FB-05D1472EF567}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.Tests.Shared", "Enum.Ext.Tests.Shared\Enum.Ext.Tests.Shared.csproj", "{F7D6AEE5-8D84-4A04-9967-DAE1D33EBE4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.NewtonsoftJson.Tests", "Enum.Ext.NewtonsoftJson.Tests\Enum.Ext.NewtonsoftJson.Tests.csproj", "{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +55,26 @@ Global
 		{46647C7A-1567-4548-BAD0-D8BE34F0BA78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46647C7A-1567-4548-BAD0-D8BE34F0BA78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46647C7A-1567-4548-BAD0-D8BE34F0BA78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B7470C-C875-44CD-9E2B-32A32E589CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B7470C-C875-44CD-9E2B-32A32E589CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B7470C-C875-44CD-9E2B-32A32E589CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B7470C-C875-44CD-9E2B-32A32E589CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC452C4D-F4C8-412D-ACBC-515F58DE0526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC452C4D-F4C8-412D-ACBC-515F58DE0526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC452C4D-F4C8-412D-ACBC-515F58DE0526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC452C4D-F4C8-412D-ACBC-515F58DE0526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD4AAB0-4061-456F-A7FB-05D1472EF567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD4AAB0-4061-456F-A7FB-05D1472EF567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD4AAB0-4061-456F-A7FB-05D1472EF567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD4AAB0-4061-456F-A7FB-05D1472EF567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D6AEE5-8D84-4A04-9967-DAE1D33EBE4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D6AEE5-8D84-4A04-9967-DAE1D33EBE4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D6AEE5-8D84-4A04-9967-DAE1D33EBE4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D6AEE5-8D84-4A04-9967-DAE1D33EBE4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

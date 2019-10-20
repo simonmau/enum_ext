@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.0.5-preview7</Version>
     <Authors>Mauracher Simon, Juen Marcel</Authors>
@@ -20,10 +20,6 @@ With Support for JSON Serialization.</Description>
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="4.6.0-preview7.19362.9" />
   </ItemGroup>
 
 </Project>

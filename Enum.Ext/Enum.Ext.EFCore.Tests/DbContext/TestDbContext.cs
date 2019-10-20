@@ -5,11 +5,6 @@ namespace Enum.Ext.EFCore.Tests.DbContext
 {
     public class TestDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        static TestDbContext()
-        {
-            Enum.Ext.Initialize.InitEnumExt<Weekday>();
-        }
-
         public TestDbContext(DbContextOptions<TestDbContext> options) : base(options)
         { }
 

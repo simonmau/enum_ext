@@ -1,4 +1,5 @@
 using AutoFixture;
+using Enum.Ext.Tests.Shared;
 using FluentAssertions;
 using NUnit.Framework;
 

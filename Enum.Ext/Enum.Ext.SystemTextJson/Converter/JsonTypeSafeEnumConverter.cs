@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Enum.Ext.Converter
+namespace Enum.Ext.SystemTextJson.Converter
 {
     public class JsonTypeSafeEnumConverter<TValue, TKey> : JsonConverter<TypeSafeEnum<TValue, TKey>>
         where TValue : TypeSafeEnum<TValue, TKey>

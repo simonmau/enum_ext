@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Enum.Ext.Tests.Shared;
+using FluentAssertions;
 using NUnit.Framework;
 using System;
 

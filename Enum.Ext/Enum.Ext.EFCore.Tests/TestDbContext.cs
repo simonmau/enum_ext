@@ -1,5 +1,7 @@
 using Enum.Ext.EFCore.Tests;
 using Enum.Ext.EFCore.Tests.DbContext;
+using Enum.Ext.Tests.Shared;
+using FluentAssertions;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
@@ -37,8 +39,8 @@ namespace Tests
                 {
                     var entities = db.SomeEntities.ToList();
 
-                    Assert.AreEqual(1, entities.Count);
-                    Assert.AreEqual(Weekday.Thursday, entities.Single().Weekday);
+                    entities.Count.Should().Be(1);
+                    entities.Single().Weekday.Should().Be(Weekday.Thursday);
                 }
             }
         }

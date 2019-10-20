@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Enum.Ext.Tests.Shared;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

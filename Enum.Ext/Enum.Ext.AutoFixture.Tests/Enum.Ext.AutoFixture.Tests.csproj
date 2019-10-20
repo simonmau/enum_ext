@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Enum.Ext.AutoFixture\Enum.Ext.AutoFixture.csproj" />
+    <ProjectReference Include="..\Enum.Ext.Tests.Shared\Enum.Ext.Tests.Shared.csproj" />
   </ItemGroup>
 
 </Project>
