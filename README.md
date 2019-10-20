@@ -4,10 +4,7 @@
 
 Enum.Ext provides a `TypeSafeEnum` that has a bunch of advantages compared to the normal .NET `Enum` value type.
 
-For example is it possible to store additional information directly with the enum. Furthermore you are able to 
-query an enum based on the information stored with it.
-
-There is also a Json-Serializer implemented, so you dont have to cast from DTOs manually.
+You can store additional information directly with the enum and later query an enum based on that information, which you stored with it. We also offer various extension packages, that ensure compatibility with other areas of the .NET environment, as well as other known extensions.
 
 ### Installation 
 https://www.nuget.org/packages/Enum.Ext/
@@ -29,6 +26,8 @@ List of all packages that we currently offer:
     PM> Install-Package Enum.Ext
     PM> Install-Package Enum.Ext.EFCore
     PM> Install-Package Enum.Ext.AutoFixture
+    PM> Install-Package Enum.Ext.NewtonsoftJson
+    PM> Install-Package Enum.Ext.SystemTextJson
 
 ### How to use
 
@@ -87,6 +86,58 @@ switch (day)
         break;
 }
 ```
+
+#### JSON Conversion
+
+We currently support two JSON frameworks:
+
+* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)
+* [System.Text.Json](https://www.nuget.org/packages/System.Text.Json)
+
+To use the build-in converters you can either annotate your enum classes directly
+
+```C#
+// with Newtonsoft.Json
+[JsonConverter(typeof(JsonTypeSafeEnumConverter))] 
+public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
+{
+    ...
+}
+
+// with System.Text.Json
+[JsonConverter(typeof(JsonTypeSafeEnumConverter<Weekday, int>))]
+public sealed class Weekday : TypeSafeNameEnum<Weekday, int>
+{
+    ...
+}
+```
+
+or add them globally (e.g. in ASP.NET Core) 
+
+```C#
+// with Newtonsoft.Json
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers().AddNewtonsoftJson(opt =>
+    {
+        opt.SerializerSettings.Converters.Add(new JsonTypeSafeEnumConverter());
+    });
+    
+    ...
+}
+
+// with System.Text.Json
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers().AddJsonOptions(opt =>
+    {
+        opt.JsonSerializerOptions.Converters.Add(new JsonTypeSafeEnumConverterFactory());
+    });
+    
+    ...
+}
+```
+
 
 #### EF Core configuration
 
