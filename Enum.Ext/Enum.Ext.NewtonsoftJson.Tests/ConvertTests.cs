@@ -11,9 +11,9 @@ namespace Enum.Ext.NewtonsoftJson.Tests
         [Test]
         public void Test_ConvertToJsonWithSerializerOptions()
         {
-            var tempClass = new ClassToSerialize
+            var tempClass = new ClassToSerialize<Weekday>
             {
-                Weekday = Weekday.Monday
+                Item = Weekday.Monday
             };
 
             var serializerOptions = new JsonSerializerSettings
@@ -23,7 +23,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
 
             var json = JsonConvert.SerializeObject(tempClass, serializerOptions);
 
-            json.Should().Be("{\"Weekday\":1}");
+            json.Should().Be("{\"Item\":1}");
         }
 
         [Test]
@@ -34,61 +34,51 @@ namespace Enum.Ext.NewtonsoftJson.Tests
                 Converters = { new JsonTypeSafeEnumConverter() }
             };
 
-            var tempClass = JsonConvert.DeserializeObject<ClassToSerialize>("{\"Weekday\":1}", serializerOptions);
+            var tempClass = JsonConvert.DeserializeObject<ClassToSerialize<Weekday>>("{\"Item\":1}", serializerOptions);
 
-            tempClass.Weekday.Should().Be(Weekday.Monday);
+            tempClass.Item.Should().Be(Weekday.Monday);
         }
 
         [Test]
         public void Test_ConvertToJsonWithAnnotation()
         {
-            var tempClass = new ClassToSerializeWithAnnotation
+            var tempClass = new ClassToSerialize<WeekdayWithAnnotation>
             {
-                Weekday = WeekdayWithAnnotation.Monday
+                Item = WeekdayWithAnnotation.Monday
             };
 
             var json = JsonConvert.SerializeObject(tempClass);
 
-            json.Should().Be("{\"Weekday\":1}");
+            json.Should().Be("{\"Item\":1}");
         }
 
         [Test]
         public void Test_ConvertFromJsonWithAnnotation()
         {
-            var tempClass = JsonConvert.DeserializeObject<ClassToSerializeWithAnnotation>("{\"Weekday\":1}");
+            var tempClass = JsonConvert.DeserializeObject<ClassToSerialize<WeekdayWithAnnotation>>("{\"Item\":1}");
 
-            tempClass.Weekday.Should().Be(WeekdayWithAnnotation.Monday);
+            tempClass.Item.Should().Be(WeekdayWithAnnotation.Monday);
         }
 
         [Test]
         public void Test_ConvertNullToJsonWithAnnotation()
         {
-            var tempClass = new ClassToSerializeWithAnnotation
+            var tempClass = new ClassToSerialize<WeekdayWithAnnotation>
             {
-                Weekday = null
+                Item = null
             };
 
             var json = JsonConvert.SerializeObject(tempClass);
 
-            json.Should().Be("{\"Weekday\":null}");
+            json.Should().Be("{\"Item\":null}");
         }
 
         [Test]
         public void Test_ConvertToNullFromJsonValueWithAnnotation()
         {
-            var tempClass = JsonConvert.DeserializeObject<ClassToSerializeWithAnnotation>("{\"Weekday\":null}");
+            var tempClass = JsonConvert.DeserializeObject<ClassToSerialize<WeekdayWithAnnotation>>("{\"Item\":null}");
 
-            tempClass.Weekday.Should().Be(null);
-        }
-
-        public class ClassToSerialize
-        {
-            public Weekday Weekday { get; set; }
-        }
-
-        public class ClassToSerializeWithAnnotation
-        {
-            public WeekdayWithAnnotation? Weekday { get; set; }
+            tempClass.Item.Should().Be(null);
         }
     }
 }
