@@ -8,10 +8,10 @@
     <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
     <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageIconUrl>https://github.com/simonmau/enum_ext/blob/master/Resources/Logo/EXT_64.png?raw=true</PackageIconUrl>
     <Description>
       Entity framework core support for Enum.Ext
     </Description>
+    <PackageIcon>EXT.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,10 +19,14 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="..\..\Resources\Logo\EXT.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enum.Ext" Version="1.0.6" />
+    <PackageReference Include="Enum.Ext" Version="1.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
   </ItemGroup>
 

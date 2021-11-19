@@ -8,9 +8,9 @@
     <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
     <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageIconUrl>https://github.com/simonmau/enum_ext/blob/master/Resources/Logo/EXT_64.png?raw=true</PackageIconUrl>
     <Description>This package adds System.Text.Json converters for Enum.Ext</Description>
     <UserSecretsId>abd1bbdc-afb7-474a-96a5-5d9850cb8551</UserSecretsId>
+    <PackageIcon>EXT.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,10 +18,14 @@
       <PackagePath></PackagePath>
       <Pack>True</Pack>
     </None>
+    <None Include="..\..\Resources\Logo\EXT.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enum.Ext" Version="1.0.6" />
+    <PackageReference Include="Enum.Ext" Version="1.0.7" />
     <PackageReference Include="System.Text.Json" Version="6.0.0" />
   </ItemGroup>
 

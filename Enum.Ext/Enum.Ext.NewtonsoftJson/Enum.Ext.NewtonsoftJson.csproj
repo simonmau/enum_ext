@@ -8,8 +8,8 @@
     <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
     <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageIconUrl>https://github.com/simonmau/enum_ext/blob/master/Resources/Logo/EXT_64.png?raw=true</PackageIconUrl>
     <Description>This package adds Newtonsoft.Json converters for Enum.Ext</Description>
+    <PackageIcon>EXT.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,10 +17,14 @@
       <PackagePath></PackagePath>
       <Pack>True</Pack>
     </None>
+    <None Include="..\..\Resources\Logo\EXT.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enum.Ext" Version="1.0.6" />
+    <PackageReference Include="Enum.Ext" Version="1.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 </Project>
