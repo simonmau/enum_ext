@@ -24,5 +24,7 @@ namespace Enum.Ext.EFCore.Tests.DbContext
         }
 
         public DbSet<SomeEntity> SomeEntities { get; set; }
+
+        public DbSet<EntityWithOwnedProperty> EntitiesWithOwnedProperties { get; set; }
     }
 }
