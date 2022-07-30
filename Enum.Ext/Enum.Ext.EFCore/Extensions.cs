@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Linq;
@@ -27,7 +28,18 @@ namespace Enum.Ext.EFCore
 
                     var converter = (ValueConverter)Activator.CreateInstance(converterType);
 
-                    modelBuilder.Entity(entityType.Name).Property(property.Name).HasConversion(converter);
+                    if (entityType.IsOwned())
+                    {
+#pragma warning disable EF1001 // Internal EF Core API usage, might change without notice -> have not found a better way till now
+                        var navigationBuilder = new OwnedNavigationBuilder(entityType.FindOwnership());
+#pragma warning restore EF1001
+
+                        navigationBuilder.Property(property.Name).HasConversion(converter);
+                    }
+                    else
+                    {
+                        modelBuilder.Entity(entityType.Name).Property(property.Name).HasConversion(converter);
+                    }
                 }
             }
         }
