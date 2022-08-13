@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext", "Enum.Ext\Enum.Ext.csproj", "{14D333D9-B435-4977-89C0-3F9CE70EC724}"
 EndProject
@@ -23,7 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.SystemTextJson.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.Tests.Shared", "Enum.Ext.Tests.Shared\Enum.Ext.Tests.Shared.csproj", "{F7D6AEE5-8D84-4A04-9967-DAE1D33EBE4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.NewtonsoftJson.Tests", "Enum.Ext.NewtonsoftJson.Tests\Enum.Ext.NewtonsoftJson.Tests.csproj", "{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum.Ext.NewtonsoftJson.Tests", "Enum.Ext.NewtonsoftJson.Tests\Enum.Ext.NewtonsoftJson.Tests.csproj", "{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.Swashbuckle.AspNetCore", "Enum.Ext.Swashbuckle.AspNetCore\Enum.Ext.Swashbuckle.AspNetCore.csproj", "{C836CB12-FA88-4FAC-AA7E-10AF0582EC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Ext.Swashbuckle.AspNetCore.Tests", "Enum.Ext.Swashbuckle.AspNetCore.Tests\Enum.Ext.Swashbuckle.AspNetCore.Tests.csproj", "{6CACA0EE-1C0D-4201-A942-B16AAA79C15E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7391FC8-FD3D-4A3D-AB3E-D70FA1B93CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C836CB12-FA88-4FAC-AA7E-10AF0582EC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C836CB12-FA88-4FAC-AA7E-10AF0582EC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C836CB12-FA88-4FAC-AA7E-10AF0582EC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C836CB12-FA88-4FAC-AA7E-10AF0582EC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CACA0EE-1C0D-4201-A942-B16AAA79C15E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CACA0EE-1C0D-4201-A942-B16AAA79C15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CACA0EE-1C0D-4201-A942-B16AAA79C15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CACA0EE-1C0D-4201-A942-B16AAA79C15E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
