@@ -28,6 +28,7 @@ List of all packages that we currently offer:
     PM> Install-Package Enum.Ext.AutoFixture
     PM> Install-Package Enum.Ext.NewtonsoftJson
     PM> Install-Package Enum.Ext.SystemTextJson
+    PM> Install-Pakcage Enum.Ext.Swashbuckle.AspNetCore
 
 ### How to use
 
@@ -160,6 +161,20 @@ fixture.WithEnumExt();
 
 var weekday = fixture.Create<Weekday>();
 ```
+
+#### Type mappers for Swashbuckle.AspNetCore
+
+If you are using `int` or `long` as key type and want your enums to be correctly displayed in the swagger documentation, you can use
+
+```C#
+builder.Services.AddSwaggerGen(options =>
+{
+    ...
+    
+    options.ConfigureEnumExt(typeof(Weekday).Assembly);
+}
+```
+
 
 ### Enum.Ext in action
 
