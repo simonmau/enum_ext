@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
@@ -40,9 +41,29 @@ namespace Enum.Ext.Swashbuckle.AspNetCore
 
                 if (keyType == typeof(int) || keyType == typeof(long))
                 {
+                    var values = (IReadOnlyCollection<object>)item
+                        .GetProperty("List", BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+                        .GetValue(null);
+
+                    var possibleIds = values.Select(x =>
+                    {
+                        var idAsObject = x.GetType()
+                            .GetProperty("Id", BindingFlags.Public | BindingFlags.Instance)
+                            .GetValue(x);
+
+                        return (long)Convert.ChangeType(idAsObject, typeof(long));
+                    });
+
+                    var example = possibleIds.FirstOrDefault();
+                    var openApiEnum = possibleIds
+                        .Select(x => (IOpenApiAny)new OpenApiString(x.ToString()))
+                        .ToList();
+
                     options.MapType(item, () => new OpenApiSchema
                     {
                         Type = "integer",
+                        Example = new OpenApiLong(example),
+                        Enum = openApiEnum,
                     });
                 }
             }

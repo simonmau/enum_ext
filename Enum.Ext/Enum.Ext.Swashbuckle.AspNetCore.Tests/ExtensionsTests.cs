@@ -1,5 +1,6 @@
 ﻿using Enum.Ext.Tests.Shared;
 using FluentAssertions;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using NUnit.Framework;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -14,6 +15,12 @@ namespace Enum.Ext.Swashbuckle.AspNetCore.Tests
         {
             // Arrange
             var swaggerGenOptions = new SwaggerGenOptions();
+            var allIds = Weekday.List.Select(x => x.Id);
+            var expectedFirstId = allIds.FirstOrDefault();
+
+            var expectedOpenApiEnum = allIds
+                        .Select(x => (IOpenApiAny)new OpenApiString(x.ToString()))
+                        .ToList();
 
             // Act
             swaggerGenOptions.ConfigureEnumExt(typeof(Weekday).Assembly);
@@ -29,6 +36,8 @@ namespace Enum.Ext.Swashbuckle.AspNetCore.Tests
             schema.Should().BeEquivalentTo(new OpenApiSchema
             {
                 Type = "integer",
+                Example = new OpenApiLong(expectedFirstId),
+                Enum = expectedOpenApiEnum,
             });
         }
     }
