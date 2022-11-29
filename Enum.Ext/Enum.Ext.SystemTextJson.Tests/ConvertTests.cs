@@ -2,6 +2,8 @@
 using Enum.Ext.Tests.Shared;
 using FluentAssertions;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 
 namespace Enum.Ext.SystemTextJson.Tests
@@ -80,6 +82,50 @@ namespace Enum.Ext.SystemTextJson.Tests
             var tempClass = JsonSerializer.Deserialize<ClassToSerialize<WeekdayWithAnnotation>>("{\"Item\":null}");
 
             tempClass.Item.Should().Be(null);
+        }
+
+        [Test]
+        public void Test_ConvertDictonaryKeyToJsonWithAnnotation()
+        {
+            var tempClass = new Dictionary<WeekdayWithAnnotation, string>
+            {
+                { WeekdayWithAnnotation.Monday, "value"  }
+            };
+
+            var json = JsonSerializer.Serialize(tempClass);
+
+            json.Should().Be("{\"1\":\"value\"}");
+        }
+
+        [Test]
+        public void Test_ConvertDictonaryKeyFormJsonWithAnnotation()
+        {
+            var tempClass = JsonSerializer.Deserialize<Dictionary<WeekdayWithAnnotation, string>>("{\"1\":\"value\"}");
+
+            tempClass.Keys.First().Should().Be(WeekdayWithAnnotation.Monday);
+            tempClass[WeekdayWithAnnotation.Monday].Should().Be("value");
+        }
+
+        [Test]
+        public void Test_ConvertDictonaryValueToJsonWithAnnotation()
+        {
+            var tempClass = new Dictionary<string, WeekdayWithAnnotation>
+            {
+                { "value", WeekdayWithAnnotation.Monday }
+            };
+
+            var json = JsonSerializer.Serialize(tempClass);
+
+            json.Should().Be("{\"value\":1}");
+        }
+
+        [Test]
+        public void Test_ConvertDictonaryValueFormJsonWithAnnotation()
+        {
+            var tempClass = JsonSerializer.Deserialize<Dictionary<string, WeekdayWithAnnotation>>("{\"value\":1}");
+
+            tempClass.Keys.First().Should().Be("value");
+            tempClass["value"].Should().Be(WeekdayWithAnnotation.Monday);
         }
     }
 }

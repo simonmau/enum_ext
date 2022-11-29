@@ -59,6 +59,26 @@ namespace Enum.Ext.SystemTextJson
             JsonSerializer.Serialize(writer, value.Id, options);
         }
 
+        public override void WriteAsPropertyName(Utf8JsonWriter writer, TypeSafeEnum<TValue, TKey> value, JsonSerializerOptions options)
+        {
+            writer.WritePropertyName(value.Id.ToString());
+        }
+
+        public override TypeSafeEnum<TValue, TKey> ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            var item = reader.GetString();
+
+            if (int.TryParse(item, out var id))
+            {
+                var keyType = GetKeyType(typeToConvert);
+                var method = GetBaseMethod(typeToConvert);
+
+                return (TypeSafeEnum<TValue, TKey>)method.Invoke(null, new[] { Convert.ChangeType(id, keyType) });
+            }
+
+            throw new NotImplementedException();
+        }
+
         public bool CanRead => true;
     }
 }
