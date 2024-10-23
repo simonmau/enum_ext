@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.8</Version>
+    <Version>1.1.0</Version>
     <Authors>Mauracher Simon, Juen Marcel</Authors>
     <PackageProjectUrl>https://github.com/simonmau/enum_ext</PackageProjectUrl>
     <RepositoryUrl>https://github.com/simonmau/enum_ext</RepositoryUrl>
@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="Enum.Ext" Version="1.0.7" />
-    <PackageReference Include="System.Text.Json" Version="7.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
 </Project>
