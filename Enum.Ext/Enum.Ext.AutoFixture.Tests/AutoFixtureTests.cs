@@ -1,6 +1,7 @@
 using AutoFixture;
 using Enum.Ext.Tests.Shared;
-using FluentAssertions;
+using Shouldly;
+
 using NUnit.Framework;
 
 namespace Enum.Ext.AutoFixture.Tests
@@ -15,7 +16,7 @@ namespace Enum.Ext.AutoFixture.Tests
 
             var weekday = fixture.Create<Weekday>();
 
-            Weekday.List.Should().Contain(weekday);
+            Weekday.List.ShouldContain(weekday);
         }
     }
 }

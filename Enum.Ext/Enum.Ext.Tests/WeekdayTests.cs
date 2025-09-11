@@ -1,7 +1,6 @@
 ﻿using Enum.Ext.Tests.Shared;
-using FluentAssertions;
 using NUnit.Framework;
-using System;
+using Shouldly;
 
 namespace Enum.Ext.Tests
 {
@@ -13,7 +12,7 @@ namespace Enum.Ext.Tests
         {
             int value = Weekday.Monday;
 
-            value.Should().Be(1);
+            value.ShouldBe(1);
         }
 
         [Test]
@@ -21,7 +20,7 @@ namespace Enum.Ext.Tests
         {
             Weekday value = (Weekday)1;
 
-            value.Should().Be(Weekday.Monday);
+            value.ShouldBe(Weekday.Monday);
         }
 
         [Test]
@@ -29,7 +28,7 @@ namespace Enum.Ext.Tests
         {
             Weekday day = (Weekday)2;
 
-            day.Should().Be(Weekday.Tuesday);
+            day.ShouldBe(Weekday.Tuesday);
         }
 
         [Test]
@@ -37,7 +36,7 @@ namespace Enum.Ext.Tests
         {
             var day = Weekday.Monday;
 
-            day.Name.Should().Be("--Monday--");
+            day.Name.ShouldBe("--Monday--");
         }
 
         [TestCase(1, 1)]
@@ -59,7 +58,7 @@ namespace Enum.Ext.Tests
                     break;
             }
 
-            branch.Should().Be(expectedBranch);
+            branch.ShouldBe(expectedBranch);
         }
     }
 }

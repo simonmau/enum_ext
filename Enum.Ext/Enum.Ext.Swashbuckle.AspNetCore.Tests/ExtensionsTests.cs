@@ -1,8 +1,9 @@
 ﻿using Enum.Ext.Tests.Shared;
-using FluentAssertions;
+
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using NUnit.Framework;
+using Shouldly;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Enum.Ext.Swashbuckle.AspNetCore.Tests
@@ -28,12 +29,12 @@ namespace Enum.Ext.Swashbuckle.AspNetCore.Tests
             // Assert
             swaggerGenOptions.SchemaGeneratorOptions
                 .CustomTypeMappings.TryGetValue(typeof(Weekday), out var mapping)
-                .Should().BeTrue();
+                .ShouldBeTrue();
 
             var schema = mapping!.Invoke();
 
-            schema.Should().NotBeNull();
-            schema.Should().BeEquivalentTo(new OpenApiSchema
+            schema.ShouldNotBeNull();
+            schema.ShouldBeEquivalentTo(new OpenApiSchema
             {
                 Type = "integer",
                 Example = new OpenApiLong(expectedFirstId),

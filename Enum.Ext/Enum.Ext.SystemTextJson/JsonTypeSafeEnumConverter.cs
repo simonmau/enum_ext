@@ -7,7 +7,7 @@ namespace Enum.Ext.SystemTextJson
 {
     public class JsonTypeSafeEnumConverter<TValue, TKey> : JsonConverter<TypeSafeEnum<TValue, TKey>>
         where TValue : TypeSafeEnum<TValue, TKey>
-        where TKey : struct, IEquatable<TKey>, IComparable<TKey>
+        where TKey : IEquatable<TKey>, IComparable<TKey>
     {
         public override bool CanConvert(Type typeToConvert)
         {
@@ -68,12 +68,27 @@ namespace Enum.Ext.SystemTextJson
         {
             var item = reader.GetString();
 
-            if (int.TryParse(item, out var id))
+            if (typeof(TKey) == typeof(long) && long.TryParse(item, out var longId))
+            {
+                var keyType = GetKeyType(typeToConvert);
+                var method = GetBaseMethod(typeToConvert);
+
+                return (TypeSafeEnum<TValue, TKey>)method.Invoke(null, new[] { Convert.ChangeType(longId, keyType) });
+            }
+
+            if (typeof(TKey) == typeof(int) && int.TryParse(item, out var id))
             {
                 var keyType = GetKeyType(typeToConvert);
                 var method = GetBaseMethod(typeToConvert);
 
                 return (TypeSafeEnum<TValue, TKey>)method.Invoke(null, new[] { Convert.ChangeType(id, keyType) });
+            }
+
+            if (typeof(TKey) == typeof(string))
+            {
+                var method = GetBaseMethod(typeToConvert);
+
+                return (TypeSafeEnum<TValue, TKey>)method.Invoke(null, new[] { item });
             }
 
             throw new NotImplementedException();

@@ -1,5 +1,5 @@
-﻿using FluentAssertions;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using Shouldly;
 using System;
 
 namespace Enum.Ext.Tests
@@ -12,7 +12,7 @@ namespace Enum.Ext.Tests
         {
             DateTime year_2018 = new DateTime(2018, 5, 3);
 
-            YearlyPrice.GetPriceByDate(year_2018).Should().Be(YearlyPrice.Price_2018);
+            YearlyPrice.GetPriceByDate(year_2018).ShouldBe(YearlyPrice.Price_2018);
         }
 
         [Test]
@@ -20,7 +20,7 @@ namespace Enum.Ext.Tests
         {
             var priceEnum = YearlyPrice.Price_2018;
 
-            priceEnum.Price.Should().Be(15.99m);
+            priceEnum.Price.ShouldBe(15.99m);
         }
     }
 }

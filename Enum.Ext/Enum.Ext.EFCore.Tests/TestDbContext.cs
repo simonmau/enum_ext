@@ -1,10 +1,9 @@
-using Enum.Ext.EFCore.Tests;
 using Enum.Ext.EFCore.Tests.DbContext;
 using Enum.Ext.Tests.Shared;
-using FluentAssertions;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
+using Shouldly;
 using System.Linq;
 
 namespace Tests
@@ -39,8 +38,8 @@ namespace Tests
                 {
                     var entities = db.SomeEntities.ToList();
 
-                    entities.Count.Should().Be(1);
-                    entities.Single().Weekday.Should().Be(Weekday.Thursday);
+                    entities.Count.ShouldBe(1);
+                    entities.Single().Weekday.ShouldBe(Weekday.Thursday);
                 }
             }
         }
@@ -76,9 +75,9 @@ namespace Tests
                 {
                     var entities = db.EntitiesWithOwnedProperties.ToList();
 
-                    entities.Count.Should().Be(1);
-                    entities.Single().OwnedStuff.Should().NotBeNull();
-                    entities.Single().OwnedStuff!.Weekday.Should().Be(Weekday.Thursday);
+                    entities.Count.ShouldBe(1);
+                    entities.Single().OwnedStuff.ShouldNotBeNull();
+                    entities.Single().OwnedStuff!.Weekday.ShouldBe(Weekday.Thursday);
                 }
             }
         }

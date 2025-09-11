@@ -6,7 +6,7 @@ using System.Reflection;
 namespace Enum.Ext
 {
     public abstract class TypeSafeEnum<TValue, TKey> : IEquatable<TypeSafeEnum<TValue, TKey>>, IComparable<TypeSafeEnum<TValue, TKey>>
-        where TKey : struct, IEquatable<TKey>, IComparable<TKey>
+        where TKey : IEquatable<TKey>, IComparable<TKey>
         where TValue : TypeSafeEnum<TValue, TKey>
     {
         protected static readonly Lazy<Dictionary<TKey, TValue>> Dictionary = new Lazy<Dictionary<TKey, TValue>>(() => GetAllOptions().ToDictionary(e => e.Id));

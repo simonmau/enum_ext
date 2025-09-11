@@ -1,8 +1,8 @@
 using Enum.Ext.Tests;
 using Enum.Ext.Tests.Shared;
-using FluentAssertions;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using Shouldly;
 
 namespace Enum.Ext.NewtonsoftJson.Tests
 {
@@ -23,7 +23,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
 
             var json = JsonConvert.SerializeObject(tempClass, serializerOptions);
 
-            json.Should().Be("{\"Item\":1}");
+            json.ShouldBe("{\"Item\":1}");
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
 
             var tempClass = JsonConvert.DeserializeObject<ClassToSerialize<Weekday>>("{\"Item\":1}", serializerOptions);
 
-            tempClass.Item.Should().Be(Weekday.Monday);
+            tempClass.Item.ShouldBe(Weekday.Monday);
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
 
             var json = JsonConvert.SerializeObject(tempClass);
 
-            json.Should().Be("{\"Item\":1}");
+            json.ShouldBe("{\"Item\":1}");
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
         {
             var tempClass = JsonConvert.DeserializeObject<ClassToSerialize<WeekdayWithAnnotation>>("{\"Item\":1}");
 
-            tempClass.Item.Should().Be(WeekdayWithAnnotation.Monday);
+            tempClass.Item.ShouldBe(WeekdayWithAnnotation.Monday);
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
 
             var json = JsonConvert.SerializeObject(tempClass);
 
-            json.Should().Be("{\"Item\":null}");
+            json.ShouldBe("{\"Item\":null}");
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace Enum.Ext.NewtonsoftJson.Tests
         {
             var tempClass = JsonConvert.DeserializeObject<ClassToSerialize<WeekdayWithAnnotation>>("{\"Item\":null}");
 
-            tempClass.Item.Should().Be(null);
+            tempClass.Item.ShouldBe(null);
         }
     }
 }

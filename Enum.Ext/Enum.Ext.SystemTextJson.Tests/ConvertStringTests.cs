@@ -9,14 +9,14 @@ using System.Text.Json;
 namespace Enum.Ext.SystemTextJson.Tests
 {
     [TestFixture]
-    public class ConvertTests
+    public class ConvertStringTests
     {
         [Test]
         public void Test_ConvertToJsonWithSerializerOptions()
         {
-            var tempClass = new ClassToSerialize<Weekday>
+            var tempClass = new ClassToSerialize<Weekend>
             {
-                Item = Weekday.Monday
+                Item = Weekend.Saturday
             };
 
             var serializerOptions = new JsonSerializerOptions
@@ -26,7 +26,7 @@ namespace Enum.Ext.SystemTextJson.Tests
 
             var json = JsonSerializer.Serialize(tempClass, serializerOptions);
 
-            json.ShouldBe("{\"Item\":1}");
+            json.ShouldBe("{\"Item\":\"--Saturday--\"}");
         }
 
         [Test]
@@ -37,36 +37,36 @@ namespace Enum.Ext.SystemTextJson.Tests
                 Converters = { new JsonTypeSafeEnumConverterFactory() }
             };
 
-            var tempClass = JsonSerializer.Deserialize<ClassToSerialize<Weekday>>("{\"Item\":1}", serializerOptions);
+            var tempClass = JsonSerializer.Deserialize<ClassToSerialize<Weekend>>("{\"Item\":\"--Saturday--\"}", serializerOptions);
 
-            tempClass.Item.ShouldBe(Weekday.Monday);
+            tempClass.Item.ShouldBe(Weekend.Saturday);
         }
 
         [Test]
         public void Test_ConvertToJsonWithAnnotation()
         {
-            var tempClass = new ClassToSerialize<WeekdayWithAnnotation>
+            var tempClass = new ClassToSerialize<WeekendWithAnnotation>
             {
-                Item = WeekdayWithAnnotation.Monday
+                Item = WeekendWithAnnotation.Saturday
             };
 
             var json = JsonSerializer.Serialize(tempClass);
 
-            json.ShouldBe("{\"Item\":1}");
+            json.ShouldBe("{\"Item\":\"--Saturday--\"}");
         }
 
         [Test]
         public void Test_ConvertFromJsonWithAnnotation()
         {
-            var tempClass = JsonSerializer.Deserialize<ClassToSerialize<WeekdayWithAnnotation>>("{\"Item\":1}");
+            var tempClass = JsonSerializer.Deserialize<ClassToSerialize<WeekendWithAnnotation>>("{\"Item\":\"--Saturday--\"}");
 
-            tempClass.Item.ShouldBe(WeekdayWithAnnotation.Monday);
+            tempClass.Item.ShouldBe(WeekendWithAnnotation.Saturday);
         }
 
         [Test]
         public void Test_ConvertNullToJsonWithAnnotation()
         {
-            var tempClass = new ClassToSerialize<Weekday>
+            var tempClass = new ClassToSerialize<Weekend>
             {
                 Item = null
             };
@@ -79,7 +79,7 @@ namespace Enum.Ext.SystemTextJson.Tests
         [Test]
         public void Test_ConvertToNullFromJsonValueWithAnnotation()
         {
-            var tempClass = JsonSerializer.Deserialize<ClassToSerialize<WeekdayWithAnnotation>>("{\"Item\":null}");
+            var tempClass = JsonSerializer.Deserialize<ClassToSerialize<WeekendWithAnnotation>>("{\"Item\":null}");
 
             tempClass.Item.ShouldBe(null);
         }
@@ -87,45 +87,45 @@ namespace Enum.Ext.SystemTextJson.Tests
         [Test]
         public void Test_ConvertDictonaryKeyToJsonWithAnnotation()
         {
-            var tempClass = new Dictionary<WeekdayWithAnnotation, string>
+            var tempClass = new Dictionary<WeekendWithAnnotation, string>
             {
-                { WeekdayWithAnnotation.Monday, "value"  }
+                { WeekendWithAnnotation.Saturday, "value"  }
             };
 
             var json = JsonSerializer.Serialize(tempClass);
 
-            json.ShouldBe("{\"1\":\"value\"}");
+            json.ShouldBe("{\"--Saturday--\":\"value\"}");
         }
 
         [Test]
         public void Test_ConvertDictonaryKeyFormJsonWithAnnotation()
         {
-            var tempClass = JsonSerializer.Deserialize<Dictionary<WeekdayWithAnnotation, string>>("{\"1\":\"value\"}");
+            var tempClass = JsonSerializer.Deserialize<Dictionary<WeekendWithAnnotation, string>>("{\"--Saturday--\":\"value\"}");
 
-            tempClass.Keys.First().ShouldBe(WeekdayWithAnnotation.Monday);
-            tempClass[WeekdayWithAnnotation.Monday].ShouldBe("value");
+            tempClass.Keys.First().ShouldBe(WeekendWithAnnotation.Saturday);
+            tempClass[WeekendWithAnnotation.Saturday].ShouldBe("value");
         }
 
         [Test]
         public void Test_ConvertDictonaryValueToJsonWithAnnotation()
         {
-            var tempClass = new Dictionary<string, WeekdayWithAnnotation>
+            var tempClass = new Dictionary<string, WeekendWithAnnotation>
             {
-                { "value", WeekdayWithAnnotation.Monday }
+                { "value", WeekendWithAnnotation.Saturday }
             };
 
             var json = JsonSerializer.Serialize(tempClass);
 
-            json.ShouldBe("{\"value\":1}");
+            json.ShouldBe("{\"value\":\"--Saturday--\"}");
         }
 
         [Test]
         public void Test_ConvertDictonaryValueFormJsonWithAnnotation()
         {
-            var tempClass = JsonSerializer.Deserialize<Dictionary<string, WeekdayWithAnnotation>>("{\"value\":1}");
+            var tempClass = JsonSerializer.Deserialize<Dictionary<string, WeekendWithAnnotation>>("{\"value\":\"--Saturday--\"}");
 
             tempClass.Keys.First().ShouldBe("value");
-            tempClass["value"].ShouldBe(WeekdayWithAnnotation.Monday);
+            tempClass["value"].ShouldBe(WeekendWithAnnotation.Saturday);
         }
     }
 }
