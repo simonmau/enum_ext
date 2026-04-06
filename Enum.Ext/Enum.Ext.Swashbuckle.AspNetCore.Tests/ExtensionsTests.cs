@@ -1,10 +1,8 @@
 ﻿using Enum.Ext.Tests.Shared;
-
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
 using NUnit.Framework;
 using Shouldly;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Text.Json.Nodes;
 
 namespace Enum.Ext.Swashbuckle.AspNetCore.Tests
 {
@@ -16,12 +14,12 @@ namespace Enum.Ext.Swashbuckle.AspNetCore.Tests
         {
             // Arrange
             var swaggerGenOptions = new SwaggerGenOptions();
-            var allIds = Weekday.List.Select(x => x.Id);
+            var allIds = Weekday.List.Select(x => (long)x.Id).ToList();
             var expectedFirstId = allIds.FirstOrDefault();
 
             var expectedOpenApiEnum = allIds
-                        .Select(x => (IOpenApiAny)new OpenApiString(x.ToString()))
-                        .ToList();
+                    .Select(x => (JsonNode)JsonValue.Create(x))
+                    .ToList();
 
             // Act
             swaggerGenOptions.ConfigureEnumExt(typeof(Weekday).Assembly);
@@ -34,12 +32,15 @@ namespace Enum.Ext.Swashbuckle.AspNetCore.Tests
             var schema = mapping!.Invoke();
 
             schema.ShouldNotBeNull();
-            schema.ShouldBeEquivalentTo(new OpenApiSchema
-            {
-                Type = "integer",
-                Example = new OpenApiLong(expectedFirstId),
-                Enum = expectedOpenApiEnum,
-            });
+
+            schema.Example.ShouldNotBeNull();
+            schema.Example.GetValue<long>().ShouldBe(expectedFirstId);
+
+            schema.Enum.ShouldNotBeNull();
+            schema.Enum.Count.ShouldBe(allIds.Count);
+
+            var actualEnumValues = schema.Enum.Select(x => x.GetValue<long>()).ToList();
+            actualEnumValues.ShouldBe(allIds);
         }
     }
 }

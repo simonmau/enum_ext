@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.Json.Nodes;
 
 namespace Enum.Ext.Swashbuckle.AspNetCore
 {
@@ -56,13 +56,13 @@ namespace Enum.Ext.Swashbuckle.AspNetCore
 
                     var example = possibleIds.FirstOrDefault();
                     var openApiEnum = possibleIds
-                        .Select(x => (IOpenApiAny)new OpenApiString(x.ToString()))
+                        .Select(x => (JsonNode)JsonValue.Create(x))
                         .ToList();
 
                     options.MapType(item, () => new OpenApiSchema
                     {
-                        Type = "integer",
-                        Example = new OpenApiLong(example),
+                        Type = JsonSchemaType.Integer,
+                        Example = JsonValue.Create(example),
                         Enum = openApiEnum,
                     });
                 }
